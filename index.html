@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>T-Rex Reimagined</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-state="ready">
+    <div class="ambient" aria-hidden="true"><span class="orb a"></span><span class="orb b"></span></div>
+
+    <header class="top">
+      <div class="brand">
+        <svg class="brand-mark" id="brand-mark" viewBox="0 0 20 19" aria-hidden="true"></svg>
+        <span class="brand-word">T-Rex</span>
+        <span class="brand-sub">Reimagined</span>
+      </div>
+      <div class="top-actions">
+        <div class="best-chip"><span>Best</span><strong id="best">00000</strong></div>
+        <button class="icon-btn" id="sound" type="button" aria-label="Sound" aria-pressed="true">
+          <svg class="i-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <svg class="i-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z" fill="currentColor"/><path d="m16 9 6 6m0-6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="stage">
+      <div class="screen" id="screen">
+        <canvas id="game" aria-label="Game canvas"></canvas>
+
+        <div class="hud" aria-live="off">
+          <span class="hud-hi">HI <b id="hud-hi">00000</b></span>
+          <span class="hud-score" id="hud-score">00000</span>
+        </div>
+
+        <div class="toast" id="toast" role="status" aria-live="polite">
+          <span class="toast-eyebrow" id="toast-eyebrow"></span>
+          <span class="toast-name" id="toast-name"></span>
+          <span class="toast-tag" id="toast-tag"></span>
+        </div>
+
+        <div class="overlay" id="ov-start" data-open="true">
+          <div class="card">
+            <p class="eyebrow">The Chrome dino, reimagined</p>
+            <h1>Eight worlds.<br /><span>One jump.</span></h1>
+            <p class="lede">Every 500 points, the world rewrites itself.</p>
+            <button class="cta" id="btn-start" type="button">Start running <kbd>Space</kbd></button>
+          </div>
+        </div>
+
+        <div class="overlay" id="ov-over">
+          <div class="card">
+            <p class="eyebrow">Game over</p>
+            <div class="big-score" id="over-score">0</div>
+            <p class="over-meta">Fell in <b id="over-world"></b><span class="dot">·</span>Best <b id="over-best"></b></p>
+            <span class="badge" id="over-badge" hidden>New best</span>
+            <button class="cta" id="btn-retry" type="button">Run again <kbd>Space</kbd></button>
+          </div>
+        </div>
+
+        <div class="overlay" id="ov-pause">
+          <div class="card">
+            <p class="eyebrow">Paused</p>
+            <button class="cta" id="btn-resume" type="button">Resume <kbd>P</kbd></button>
+          </div>
+        </div>
+      </div>
+
+      <section class="worlds" aria-labelledby="worlds-title">
+        <div class="worlds-head">
+          <h2 id="worlds-title">Worlds</h2>
+          <p id="worlds-hint">Pick where your run begins.</p>
+        </div>
+        <ol class="rail" id="rail"></ol>
+      </section>
+
+      <footer class="keys">
+        <span class="k-desk"><kbd>Space</kbd><kbd>↑</kbd> Jump, hold for height</span>
+        <span class="k-desk"><kbd>↓</kbd> Duck, fast-fall</span>
+        <span class="k-desk"><kbd>P</kbd> Pause</span>
+        <span class="k-desk"><kbd>M</kbd> Sound</span>
+        <span class="k-touch">Tap to jump · hold the lower half to duck</span>
+      </footer>
+    </main>
+
+    <script src="src/core.js"></script>
+    <script src="src/kit.js"></script>
+    <script>window.THEMES = [];</script>
+    <script src="src/themes/trex.js"></script>
+    <script src="src/themes/plumber.js"></script>
+    <script src="src/themes/synthwave.js"></script>
+    <script src="src/themes/india.js"></script>
+    <script src="src/themes/underwater.js"></script>
+    <script src="src/themes/japan.js"></script>
+    <script src="src/themes/arctic.js"></script>
+    <script src="src/themes/moon.js"></script>
+    <script src="src/audio.js"></script>
+    <script src="src/game.js"></script>
+    <script src="src/main.js"></script>
+  </body>
+</html>
